@@ -1,17 +1,13 @@
 package ch.ost.rj.mge.bemerkt
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ch.ost.rj.mge.bemerkt.model.Note
 import ch.ost.rj.mge.bemerkt.model.NotesDatabase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.note_item.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -57,7 +53,7 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
 
     private fun getAllNotes() {
         launch {
-            val listNotes: List<Note>? = noteDB?.notesDao()?.getAllNotes()
+            val listNotes: List<Note>? = noteDB?.noteDao()?.getAllNotes()
             if (listNotes != null) {
                 adapter?.setNotes(listNotes)
             }

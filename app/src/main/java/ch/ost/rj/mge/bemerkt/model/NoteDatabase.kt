@@ -9,11 +9,11 @@ import androidx.room.RoomDatabase
 @Database(entities = [Note::class], version = 1)
 abstract class NotesDatabase : RoomDatabase() {
 
-    abstract fun notesDao(): NotesDao
+    abstract fun noteDao(): NoteDao
 
     companion object {
         private var INSTANCE: NotesDatabase? = null
-        private val DB_NAME = "note_db"
+        private const val DB_NAME = "note_db"
 
         fun getDatabase(context: Context): NotesDatabase {
             val tempInstance = INSTANCE
