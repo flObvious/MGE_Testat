@@ -5,6 +5,8 @@
     <color name="colorAccent">#4fb3bf</color>
 
     <color name="backgroundColor">#212121</color>
-    <color name="textColor">#FFF</color>
+    <color name="textColor">#FFFFFF</color>
     <color name="hintColor">#a4a4a4</color>
+    <color name="titleColor">#FFFFFF</color>
+    <color name="saveTextColor">#FFFFFF</color>
 </resources>
