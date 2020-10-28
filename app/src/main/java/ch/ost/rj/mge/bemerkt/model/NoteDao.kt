@@ -1,21 +1,20 @@
 package ch.ost.rj.mge.bemerkt.model
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
 
 @Dao
-interface NoteDao {
-    @Query("SELECT * FROM note")
-    fun getAll(): List<Note>
+interface NotesDao {
 
-    @Query("SELECT * FROM note WHERE title LIKE :title")
-    fun findByTitle(title: String): Note
+    @Query("SELECT * FROM note ORDER BY id DESC")
+    suspend fun getAllNotes(): List<Note>
 
     @Insert
-    fun insert(vararg note: Note)
+    suspend fun insert(note: Note)
 
     @Delete
-    fun delete(todo: Note)
+    suspend fun delete(note: Note)
 
-    @Update
-    fun update(vararg note: Note)
 }

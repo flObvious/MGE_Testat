@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".EditActivity">
 
     <EditText
@@ -15,6 +16,8 @@
         android:padding="10dp"
         android:singleLine="true"
         android:textSize="24sp"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/hintColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +30,8 @@
         android:gravity="start"
         android:hint="@string/note_hint"
         android:padding="10dp"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/hintColor"
         app:layout_constraintBottom_toTopOf="@+id/save_note"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +43,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/note_save"
+        android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
