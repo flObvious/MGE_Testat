@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = mJob + Dispatchers.Main
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
         new_note.setOnClickListener(View.OnClickListener { view ->
             startActivity(EditActivity.createIntent(this))
         })
-
     }
 
     private fun initRecyclerView(){

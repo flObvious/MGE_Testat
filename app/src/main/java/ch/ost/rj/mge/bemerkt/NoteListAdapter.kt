@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-
 class NotesListAdapter internal constructor(private var context: Context, private val noteDB: NotesDatabase): RecyclerView.Adapter<NotesListAdapter.ViewHolder>(){
 
     private var noteList = emptyList<Note>()
@@ -26,7 +25,6 @@ class NotesListAdapter internal constructor(private var context: Context, privat
         this.noteList = listNote
         notifyDataSetChanged()
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesListAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(
@@ -60,7 +58,6 @@ class NotesListAdapter internal constructor(private var context: Context, privat
             notifyDataSetChanged()
         }
     }
-
 
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val titleView: TextView = view.item_title

@@ -13,7 +13,7 @@ class SwipeToDelete (var adapter: NotesListAdapter): ItemTouchHelper.SimpleCallb
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        var position = viewHolder.adapterPosition
+        val position = viewHolder.adapterPosition
         adapter.deleteItem(position)
 
     }
