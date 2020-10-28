@@ -7,29 +7,22 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/titleTv"
+        android:id="@+id/item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/textColor"
         android:maxLines="1"
-        android:padding="1dp"
-        tools:text="My Note Title"/>
+        android:padding="1dp" />
     <TextView
-        android:id="@+id/descriptionTv"
+        android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:paddingStart="2dp"
         android:paddingBottom="1dp"
         android:textColor="@color/textColor"
-        tools:text="Note Context"
         tools:ignore="RtlSymmetry" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/textColor" />
 
 </LinearLayout>

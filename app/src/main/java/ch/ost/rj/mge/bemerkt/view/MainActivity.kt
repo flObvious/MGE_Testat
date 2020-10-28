@@ -1,10 +1,15 @@
-package ch.ost.rj.mge.bemerkt
+package ch.ost.rj.mge.bemerkt.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ch.ost.rj.mge.bemerkt.NotesListAdapter
+import ch.ost.rj.mge.bemerkt.R
+import ch.ost.rj.mge.bemerkt.SwipeToDelete
 import ch.ost.rj.mge.bemerkt.model.Note
 import ch.ost.rj.mge.bemerkt.model.NotesDatabase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,9 +35,7 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
         noteDB = NotesDatabase.getDatabase(this)
         adapter = NotesListAdapter(this, noteDB!!)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        initRecyclerView()
 
         new_note.setOnClickListener(View.OnClickListener { view ->
             startActivity(EditActivity.createIntent(this))
@@ -40,6 +43,19 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
 
     }
 
+    private fun initRecyclerView(){
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        recyclerView.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
+
+        val itemTouchHelper = ItemTouchHelper(
+            SwipeToDelete(
+                adapter!!
+            )
+        )
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
 
     override fun onResume() {
         super.onResume()

@@ -1,10 +1,10 @@
-package ch.ost.rj.mge.bemerkt
+package ch.ost.rj.mge.bemerkt.view
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import ch.ost.rj.mge.bemerkt.R
 import ch.ost.rj.mge.bemerkt.model.Note
 import ch.ost.rj.mge.bemerkt.model.NotesDatabase
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -41,7 +41,6 @@ class EditActivity : AppCompatActivity(), CoroutineScope {
             if(note == null){
                 insertNote(note_title.text.toString(), note_content.text.toString())
             }else{
-                Toast.makeText(this, "Update", Toast.LENGTH_SHORT).show()
                 updateNote(note_title.text.toString(), note_content.text.toString(), note)
 
             }
@@ -55,20 +54,16 @@ class EditActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun insertNote(title: String, description: String){
-        if(!title.isEmpty() && !description.isEmpty()){
-            launch {
-                noteDB?.noteDao()?.insert(Note(title = title, desc = description))
-            }
+        launch {
+            noteDB?.noteDao()?.insert(Note(title = title, desc = description))
         }
     }
 
     private fun updateNote(title: String, description: String, note: Note){
         note.title = title
         note.desc = description
-        if(!title.isEmpty() && !description.isEmpty()){
-            launch {
-                noteDB?.noteDao()?.update(note)
-            }
+        launch {
+            noteDB?.noteDao()?.update(note)
         }
     }
 
