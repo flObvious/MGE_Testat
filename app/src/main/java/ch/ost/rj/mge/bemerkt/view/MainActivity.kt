@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
-        recyclerView.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
+        var dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        dividerItemDecoration.setDrawable(getDrawable(R.drawable.line_divider)!!)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         val itemTouchHelper = ItemTouchHelper(
             SwipeToDelete(
