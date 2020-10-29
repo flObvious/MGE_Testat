@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
     tools:context=".view.EditActivity">
 
     <EditText
@@ -43,7 +42,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/note_save"
-        android:textColor="@color/saveTextColor"
+        android:textColor="@color/buttonTextColor"
         android:backgroundTint="@color/colorAccent"
         android:windowSoftInputMode="adjustResize"
         app:layout_constraintBottom_toBottomOf="parent"

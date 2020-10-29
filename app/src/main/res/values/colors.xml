@@ -8,6 +8,6 @@
     <color name="textColor">#757575</color>
     <color name="hintColor">#a4a4a4</color>
     <color name="titleColor">#424242</color>
-    <color name="saveTextColor">#000000</color>
+    <color name="buttonTextColor">#000000</color>
     <color name="dividerColor">#bdbdbd</color>
 </resources>
