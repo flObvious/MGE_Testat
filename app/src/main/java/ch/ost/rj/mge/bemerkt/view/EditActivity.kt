@@ -18,14 +18,14 @@ class EditActivity : AppCompatActivity(), CoroutineScope {
     private var noteDB : NotesDatabase?= null
     private lateinit var mJob: Job
 
+    override val coroutineContext: CoroutineContext
+        get() = mJob + Dispatchers.Main
+
     companion object {
         fun createIntent(context: Context): Intent {
             return Intent(context, EditActivity::class.java)
         }
     }
-
-    override val coroutineContext: CoroutineContext
-        get() = mJob + Dispatchers.Main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +48,11 @@ class EditActivity : AppCompatActivity(), CoroutineScope {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mJob.cancel()
+    }
+
     private fun setContent(note: Note?){
         note_title.setText(note?.title)
         note_content.setText(note?.desc)
@@ -65,10 +70,5 @@ class EditActivity : AppCompatActivity(), CoroutineScope {
         launch {
             noteDB?.noteDao()?.update(note)
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mJob.cancel()
     }
 }

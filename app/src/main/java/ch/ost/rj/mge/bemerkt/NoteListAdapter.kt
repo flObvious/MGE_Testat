@@ -19,7 +19,7 @@ class NotesListAdapter internal constructor(private var context: Context, privat
 
     private var noteList = emptyList<Note>()
     private val job = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + job)
+    private val mainScope = CoroutineScope(Dispatchers.Main + job)
 
     internal fun setNotes(listNote: List<Note>) {
         this.noteList = listNote
@@ -52,7 +52,7 @@ class NotesListAdapter internal constructor(private var context: Context, privat
     }
 
     fun deleteItem(position: Int){
-        uiScope.launch{
+        mainScope.launch{
             noteDB.noteDao().delete(noteList[position])
             noteList = noteDB.noteDao().getAllNotes()
             notifyDataSetChanged()

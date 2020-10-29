@@ -41,22 +41,6 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
         })
     }
 
-    private fun initRecyclerView(){
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
-        var dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
-        dividerItemDecoration.setDrawable(getDrawable(R.drawable.line_divider)!!)
-        recyclerView.addItemDecoration(dividerItemDecoration)
-
-        val itemTouchHelper = ItemTouchHelper(
-            SwipeToDelete(
-                adapter!!
-            )
-        )
-        itemTouchHelper.attachToRecyclerView(recyclerView)
-    }
-
     override fun onResume() {
         super.onResume()
         getAllNotes()
@@ -74,6 +58,22 @@ class MainActivity : AppCompatActivity() , CoroutineScope {
                 adapter?.setNotes(listNotes)
             }
         }
+    }
+
+    private fun initRecyclerView(){
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        dividerItemDecoration.setDrawable(getDrawable(R.drawable.line_divider)!!)
+        recyclerView.addItemDecoration(dividerItemDecoration)
+
+        val itemTouchHelper = ItemTouchHelper(
+            SwipeToDelete(
+                adapter!!
+            )
+        )
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 }
 

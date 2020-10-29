@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bemerkt</string>
+    <string name="note_save">Sauver</string>
+    <string name="note_title">Titre</string>
+    <string name="note_hint">Entre Note</string>
+</resources>
