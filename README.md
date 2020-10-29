@@ -1,5 +1,5 @@
 # Bemerkt
-Als Miniprojekt für das Modul MGE entsteht eine App um sich Geistesblitze übersichtlich und unkompliziert zu notieren. 
+Als Miniprojekt für das Modul MGE entsteht eine App um sich Geistesblitze übersichtlich und unkompliziert zu notieren.
 
 Es sollen folgende Funktionalitäten im MVP implementiert werden:
 - Erstellen, bearbeiten und löschen einer Notiz
@@ -16,8 +16,3 @@ Es sollen folgende Funktionalitäten im MVP implementiert werden:
 - Sortieren nach Tags
 - Markdown Editor
 - Anbindung an z.B. GoogleDrive
-
-## Demo 
-
-<img src="Demo.mov" alt="Demo" style="zoom:33%;" />
-
