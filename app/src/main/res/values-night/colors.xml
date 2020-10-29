@@ -5,7 +5,7 @@
     <color name="colorAccent">#428e92</color>
 
     <color name="backgroundColor">#212121</color>
-    <color name="textColor">#FFFFFF</color>
+    <color name="textColor">#eeeeee</color>
     <color name="hintColor">#a4a4a4</color>
     <color name="titleColor">#FFFFFF</color>
     <color name="buttonTextColor">#FFFFFF</color>
